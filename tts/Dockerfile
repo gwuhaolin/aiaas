@@ -8,10 +8,7 @@ COPY . /app
 
 # 安装所需的依赖包
 RUN apt-get update && apt-get install -y \
-    build-essential \
-    libsm6 \
-    libxext6 \
-    libxrender-dev \
+    python \
     && rm -rf /var/lib/apt/lists/*
 
 # 安装 Python 包
