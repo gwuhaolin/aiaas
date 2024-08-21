@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . /app
 
 # 安装 Python 包
-RUN pip3 install --no-cache-dir \
+RUN pip install --no-cache-dir \
     torch \
     flask modelscope
 
@@ -15,4 +15,4 @@ RUN pip3 install --no-cache-dir \
 EXPOSE 5000
 
 # 启动 Flask 服务
-CMD ["python3", "__init__.py"]
+CMD ["python", "__init__.py"]
