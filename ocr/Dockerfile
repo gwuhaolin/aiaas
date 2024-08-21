@@ -7,7 +7,9 @@ WORKDIR /app
 COPY . /app
 
 # 安装 Python 包
-RUN pip install flask modelscope
+RUN pip install flask modelscope datasets oss2 simplejson sortedcontainers pytorch_wavelets tensorboardX
+RUN python -m modelscope download --model damo/cv_resnet18_ocr-detection-db-line-level_damo
+RUN python -m modelscope download --model damo/damo/cv_convnextTiny_ocr-recognition-general_damo
 
 # 暴露端口
 EXPOSE 5000
