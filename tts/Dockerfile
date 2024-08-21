@@ -8,6 +8,8 @@ COPY . /app
 
 # 安装 Python 包
 RUN pip install flask modelscope
+RUN pip install kantts -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html
+RUN pip install tf_slim pyclipper shapely cosyvoice modelscope[audio] ttsfrd addict datasets oss2 simplejson sortedcontainers pytorch_wavelets tensorboardX
 
 # 暴露端口
 EXPOSE 5000
