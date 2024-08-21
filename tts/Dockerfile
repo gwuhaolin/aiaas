@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.6.0-cudnn-runtime-ubuntu20.04
+FROM pytorch/pytorch:2.4.0-cuda11.8-cudnn9-runtime
 
 # 设置工作目录
 WORKDIR /app
@@ -6,14 +6,11 @@ WORKDIR /app
 # 将当前目录的内容复制到容器中的 /app 目录
 COPY . /app
 
-# 安装所需的依赖包
-RUN apt-get update && apt-get install -y python3 python3-pip
-
 # 安装 Python 包
-RUN pip3 install torch flask modelscope
+RUN pip install flask modelscope
 
 # 暴露端口
 EXPOSE 5000
 
 # 启动 Flask 服务
-CMD ["python3", "__init__.py"]
+CMD ["python", "__init__.py"]
