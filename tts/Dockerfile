@@ -6,8 +6,13 @@ WORKDIR /app
 # 将当前目录的内容复制到容器中的 /app 目录
 COPY . /app
 
+# 安装所需的依赖包
+RUN apt-get update && apt-get install -y \
+    python3 python3-pip \
+    && rm -rf /var/lib/apt/lists/* \
+
 # 安装 Python 包
-RUN pip install --no-cache-dir \
+RUN pip3 install --no-cache-dir \
     torch \
     flask modelscope
 
@@ -15,4 +20,4 @@ RUN pip install --no-cache-dir \
 EXPOSE 5000
 
 # 启动 Flask 服务
-CMD ["python", "__init__.py"]
+CMD ["python3", "__init__.py"]
