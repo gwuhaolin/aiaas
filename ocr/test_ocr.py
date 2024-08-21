@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from ai.ocr import ocr, ocr_http
+from . import ocr, ocr_http
 
 
 class Test(TestCase):
